@@ -1,0 +1,37 @@
+[
+    {
+        "Stock_Symbol": "TEA",
+        "Type": "Common",
+        "Last_Dividend": 0,
+        "Fixed_Dividend": "",
+        "Par_Value": 100
+    },
+    {
+        "Stock_Symbol": "POP",
+        "Type": "Common",
+        "Last_Dividend": 8,
+        "Fixed_Dividend": "",
+        "Par_Value": 100
+    },
+    {
+        "Stock_Symbol": "ALE",
+        "Type": "Common",
+        "Last_Dividend": 23,
+        "Fixed_Dividend": "",
+        "Par_Value": 60
+    },
+    {
+        "Stock_Symbol": "GIN",
+        "Type": "Preferred",
+        "Last_Dividend": 8,
+        "Fixed_Dividend": 0.02,
+        "Par_Value": 100
+    },
+    {
+        "Stock_Symbol": "JOE",
+        "Type": "Common",
+        "Last_Dividend": 13,
+        "Fixed_Dividend": "",
+        "Par_Value": 250
+    }
+]

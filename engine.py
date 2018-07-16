@@ -45,8 +45,11 @@ def p_to_e_ratio(symbol, price):
 
 def trade_record(symbol, quantity_of_shares, movement, price):
     tradedict = {}
+    list_of_trades = []
+    appendtojson = (os.path.realpath(os.path.join(os.getcwd(), "trade_{}.json".format(symbol))))
     now = datetime.datetime.now()
     timestamp = now.strftime("%d/%m/%Y %H:%M:%S")
+
     if quantity_of_shares < 1:
         return "Bad number of shares"
     if movement not in ['BUY', 'SELL']:
@@ -59,13 +62,23 @@ def trade_record(symbol, quantity_of_shares, movement, price):
     tradedict['Quantity'] = quantity_of_shares
     tradedict['Movement'] = movement
     tradedict['Price'] = float(price)
-    #json_trade = json.dumps(tradedict)
-    list_of_trades = []
+
     list_of_trades.append(copy.deepcopy(tradedict))
-    print(list_of_trades)
-    #print(json_trade)
-    with open("trade_{}.json".format(symbol), 'a') as fileobj:
-        json.dump(list_of_trades, fileobj)
+
+    if os.path.isfile(appendtojson):
+        with open("trade_{}.json".format(symbol), 'r') as fileobj:
+            tradingdata = json.load(fileobj)
+            tradingdata.append(tradedict)
+
+        with open("trade_{}.json".format(symbol), 'w') as fileob:
+            json.dump(tradingdata, fileob, indent=4)
+
+
+    if not os.path.isfile(appendtojson):
+        with open("trade_{}.json".format(symbol), 'w') as newj:
+            json.dump(list_of_trades, newj, indent=4)
+
+
 
     #return singleline
 
@@ -77,5 +90,5 @@ if __name__ == "__main__":
     print('The percentage yield is {}'.format(dividend))
     p_e_ratio_figure = p_to_e_ratio('POP', 100)
     print('The P/E ratio is {}'.format(p_e_ratio_figure))
-    trade_recorded = trade_record('ALE', 10, 'BUY', 41)
+    trade_recorded = trade_record('ALE', 40, 'BUY', 41)
     print('Trade recorded: {}'.format(trade_recorded))

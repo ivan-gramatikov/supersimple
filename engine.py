@@ -32,7 +32,7 @@ def calculate_dividend_yield(symbol, price):
     elif type == 'Common':
         dividend_yield = (last_dividend/price)
     else:
-        return -1
+        return "Not Proper Type of Stock"
 
     return dividend_yield*100
 
@@ -42,27 +42,40 @@ def p_to_e_ratio(symbol, price):
     p_e_ratio = (price/dividend)
     return p_e_ratio
 
-def trade_record(quantity_of_shares, movement, price):
+def trade_record(symbol, quantity_of_shares, movement, price):
+    tradedict = {}
     now = datetime.datetime.now()
     timestamp = now.strftime("%d/%m/%Y %H:%M:%S")
     if quantity_of_shares < 1:
-        return -1
-    if movement != 'SELL' or movement != 'BUY':
-        return -1
+        return "Bad number of shares"
+    if movement not in ['BUY', 'SELL']:
+        return "Operation is not correct"
     if price < 0:
-        return -1
+        return "Price is not ok, check the price"
 
-    record_trade = [timestamp, quantity_of_shares, movement, price]
-    trade = ":".join(record_trade)
-    #quantity_of_shares = random.randint(1, 1000)
-    #buy_sell = random.choice('BUY', 'SELL')
-    #leaving those two for simulation purposes
-    return trade
+    tradedict['Stock'] = symbol
+    tradedict['Timestamp'] = timestamp
+    tradedict['Quantity'] = quantity_of_shares
+    tradedict['Movement'] = movement
+    tradedict['Price'] = float(price)
+    
+    json_trade = json.dumps(tradedict)
+    print(json_trade)
+
+
+    print(json_trade)
+    with open("trade_{}.json".format(symbol), 'a') as fileobj:
+        json.dump(tradedict, fileobj)
+
+    #return singleline
+
+def volume_weighted_stock_price():
+    pass
 
 if __name__ == "__main__":
     dividend = calculate_dividend_yield('POP', 10)
     print('The percentage yield is {}'.format(dividend))
     p_e_ratio_figure = p_to_e_ratio('POP', 100)
     print('The P/E ratio is {}'.format(p_e_ratio_figure))
-    trade_recorded = trade_record(140, 'BUY', 15.4",".join(myList ))
-    print('Timestamp is {}'.format(trade_recorded))
+    trade_recorded = trade_record('ALE', 10, 'BUY', 41)
+    print('Trade recorded: {}'.format(trade_recorded))

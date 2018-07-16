@@ -10,7 +10,8 @@
 import json
 import datetime
 import random
-
+import copy
+import os
 #----------------------------------------------------------------------
 #Variable Declarations as needed
 
@@ -58,14 +59,13 @@ def trade_record(symbol, quantity_of_shares, movement, price):
     tradedict['Quantity'] = quantity_of_shares
     tradedict['Movement'] = movement
     tradedict['Price'] = float(price)
-    
-    json_trade = json.dumps(tradedict)
-    print(json_trade)
-
-
-    print(json_trade)
+    #json_trade = json.dumps(tradedict)
+    list_of_trades = []
+    list_of_trades.append(copy.deepcopy(tradedict))
+    print(list_of_trades)
+    #print(json_trade)
     with open("trade_{}.json".format(symbol), 'a') as fileobj:
-        json.dump(tradedict, fileobj)
+        json.dump(list_of_trades, fileobj)
 
     #return singleline
 
@@ -73,7 +73,7 @@ def volume_weighted_stock_price():
     pass
 
 if __name__ == "__main__":
-    dividend = calculate_dividend_yield('POP', 10)
+    dividend = calculate_dividend_yield('POP', 86.12378676)
     print('The percentage yield is {}'.format(dividend))
     p_e_ratio_figure = p_to_e_ratio('POP', 100)
     print('The P/E ratio is {}'.format(p_e_ratio_figure))

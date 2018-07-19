@@ -1,0 +1,72 @@
+[
+    {
+        "Timestamp": "2018-07-18 22:45:36",
+        "Indicator": "BUY",
+        "Stock": "TEA",
+        "Quantity": 475,
+        "Price": 78.26
+    },
+    {
+        "Timestamp": "2018-07-18 22:45:36",
+        "Indicator": "SELL",
+        "Stock": "TEA",
+        "Quantity": 966,
+        "Price": 87.53
+    },
+    {
+        "Timestamp": "2018-07-18 22:45:36",
+        "Indicator": "SELL",
+        "Stock": "TEA",
+        "Quantity": 304,
+        "Price": 85.36
+    },
+    {
+        "Timestamp": "2018-07-18 22:45:36",
+        "Indicator": "SELL",
+        "Stock": "TEA",
+        "Quantity": 765,
+        "Price": 0.28
+    },
+    {
+        "Timestamp": "2018-07-18 22:45:36",
+        "Indicator": "SELL",
+        "Stock": "TEA",
+        "Quantity": 562,
+        "Price": 57.18
+    },
+    {
+        "Timestamp": "2018-07-18 22:45:36",
+        "Indicator": "SELL",
+        "Stock": "TEA",
+        "Quantity": 225,
+        "Price": 45.04
+    },
+    {
+        "Timestamp": "2018-07-18 22:45:36",
+        "Indicator": "BUY",
+        "Stock": "TEA",
+        "Quantity": 717,
+        "Price": 74.93
+    },
+    {
+        "Timestamp": "2018-07-18 22:45:36",
+        "Indicator": "BUY",
+        "Stock": "TEA",
+        "Quantity": 552,
+        "Price": 83.26
+    },
+    {
+        "Timestamp": "2018-07-18 22:45:36",
+        "Indicator": "BUY",
+        "Stock": "TEA",
+        "Quantity": 975,
+        "Price": 84.13
+    },
+    {
+        "Timestamp": "2018-07-18 22:45:36",
+        "Indicator": "SELL",
+        "Stock": "TEA",
+        "Quantity": 15,
+        "Price": 31.34
+    }
+]

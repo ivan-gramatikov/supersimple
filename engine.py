@@ -58,8 +58,14 @@ def calculate_dividend_yield(symbol, price):
     symbol = str(symbol)
     price = float(price)
 
-    # We take the locator from the output of the main_data function above
+    # Some sanity checks
+    if price < 0:
+        raise ValueError(
+            "The user needs to enter a positive price")
+        return False
 
+
+    # We take the locator from the output of the main_data function above
     locator = main_data(symbol)
     if not locator:
         raise ValueError(
@@ -73,9 +79,15 @@ def calculate_dividend_yield(symbol, price):
 
     # We handle the two cases - when we need to calculate by the Dividend Yield formula of Preferred and by the formula of Common stock
     if type_of_stock == 'Preferred':
-        dividend_yield = ((fixed_dividend * par_value) / price)
+        try:
+            dividend_yield = ((fixed_dividend * par_value) / price)
+        except ZeroDivisionError:
+            return False
     elif type_of_stock == 'Common':
-        dividend_yield = (last_dividend / price)
+        try:
+            dividend_yield = (last_dividend / price)
+        except ZeroDivisionError:
+            return False
     else:
         raise ValueError(
             'Not proper type of stock! Stock is {} and it should be either Preferred or Common'.format(type_of_stock))
@@ -149,7 +161,7 @@ def trade_record(symbol, quantity_of_shares, movement, price):
 
     if price < 0:
         raise ValueError(
-            "The user needs to either enter BUY or SELL for the respective operation they want to perform  for the record of the trade")
+            "The user needs to enter a positive price")
         return False
 
     # We fill in the dictionary of the trade to be written. Input is taken from the user.

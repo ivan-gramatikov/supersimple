@@ -44,9 +44,6 @@ Part of the definition:  "Dividend yield is represented as a percentage [..]"
 Source: https://www.investopedia.com/terms/d/dividendyield.asp
 
 -----------------------------------------------------------------
-Requirements:
-numpy
------------------------------------------------------------------
 Super Simple Stock Market Engine v1.0
 
 The code supports the following functionality:
@@ -80,7 +77,7 @@ Example:
 5. The Global Beverage Commerce Exchange All Share Inex will be automatically calculated, provided the user has recorded trades for MORE THAN 2 stock indices. No input from the user is required otherwise.
 
 Example:
-`python3 engine.py --asi` or `python3 engine.py --all-share-index`
+`python3 engine.py --asi <path_to_script_directory>` or `python3 engine.py --all-share-index <path_to_script_directory>`
 
 To run tests:
 `python3 test_engine.py`

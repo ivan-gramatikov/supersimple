@@ -380,7 +380,7 @@ def main():
         5. The Global Beverage Commerce Exchange All Share Inex will be automatically calculated, provided the user has recorded trades for MORE THAN 2 stock indices. No input from the user is required otherwise.
 
         Example:
-        `python3 engine.py --asi` or `python3 engine.py --all-share-index`
+        `python3 engine.py --asi <path_to_script_directory>` or `python3 engine.py --all-share-index <path_to_script_directory>`
 
         To run tests:
         `python3 test_engine.py`
@@ -430,7 +430,7 @@ def main():
 
     if sys.argv[1] == '--asi' or sys.argv[1] == '--all-share-index':
         if sys.argv[2] == 'h':
-            sys.exit('The Global Beverage Commerce Exchange All Share Inex will be automatically calculated, provided the user has recorded trades for MORE THAN 2 stock indices. No input from the user is required otherwise. Example: python3 engine.py --asi or python3 engine.py --all-share-index')
+            sys.exit('The Global Beverage Commerce Exchange All Share Inex will be automatically calculated, provided the user has recorded trades for MORE THAN 2 stock indices. No input from the user is required otherwise. Example: python3 engine.py --asi <path_to_script_directory> or python3 engine.py --all-share-index <path_to_script_directory>')
 
         gbce_asi = gbce_all_share_index(sys.argv[2])
         if not gbce_asi:

@@ -44,6 +44,9 @@ Part of the definition:  "Dividend yield is represented as a percentage [..]"
 Source: https://www.investopedia.com/terms/d/dividendyield.asp
 
 -----------------------------------------------------------------
+Requirements:
+numpy
+-----------------------------------------------------------------
 Super Simple Stock Market Engine v1.0
 
 The code supports the following functionality:

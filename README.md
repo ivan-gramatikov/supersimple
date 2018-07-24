@@ -47,8 +47,10 @@ Source: https://www.investopedia.com/terms/d/dividendyield.asp
 Super Simple Stock Market Engine v1.0
  
  Requirements:
- pip3 install -r requirements.txt
-
+ 
+ `pip3 install -r requirements.txt`
+ 
+ -----------------------------------------------------------------
 The code supports the following functionality:
 1. Dividend Yield:
 

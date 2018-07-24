@@ -1,0 +1,9 @@
+[
+  "test_engine.py::SuperSimple::test_dividend_yield_common_type",
+  "test_engine.py::SuperSimple::test_dividend_yield_preferred_type",
+  "test_engine.py::SuperSimple::test_gbce_all_share_index",
+  "test_engine.py::SuperSimple::test_main_data",
+  "test_engine.py::SuperSimple::test_p_to_e_ratio",
+  "test_engine.py::SuperSimple::test_trade_record",
+  "test_engine.py::SuperSimple::test_volume_weighted_stock_price"
+]

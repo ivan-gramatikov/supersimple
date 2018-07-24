@@ -1,37 +1,100 @@
 [
     {
-        "Stock": "ALE",
+        "Quantity": 40,
+        "Movement": "BUY",
         "Timestamp": "16/07/2018 16:56:42",
-        "Movement": "BUY",
-        "Price": 41.0,
-        "Quantity": 40
+        "Stock": "ALE",
+        "Price": 41.0
     },
     {
-        "Stock": "ALE",
+        "Quantity": 40,
+        "Movement": "BUY",
         "Timestamp": "16/07/2018 16:56:44",
-        "Movement": "BUY",
-        "Price": 41.0,
-        "Quantity": 40
+        "Stock": "ALE",
+        "Price": 41.0
     },
     {
-        "Stock": "ALE",
+        "Quantity": 40,
+        "Movement": "BUY",
         "Timestamp": "16/07/2018 16:56:45",
-        "Movement": "BUY",
-        "Price": 41.0,
-        "Quantity": 40
+        "Stock": "ALE",
+        "Price": 41.0
     },
     {
-        "Stock": "ALE",
+        "Quantity": 40,
+        "Movement": "BUY",
         "Timestamp": "16/07/2018 16:56:46",
-        "Movement": "BUY",
-        "Price": 41.0,
-        "Quantity": 40
+        "Stock": "ALE",
+        "Price": 41.0
     },
     {
-        "Stock": "ALE",
-        "Timestamp": "16/07/2018 16:56:47",
+        "Quantity": 40,
         "Movement": "BUY",
-        "Price": 41.0,
-        "Quantity": 40
+        "Timestamp": "16/07/2018 16:56:47",
+        "Stock": "ALE",
+        "Price": 41.0
+    },
+    {
+        "Indicator": "SELL",
+        "Quantity": 100,
+        "Timestamp": "2018-07-24 18:20:16",
+        "Stock": "ALE",
+        "Price": 15.0
+    },
+    {
+        "Indicator": "SELL",
+        "Quantity": 100,
+        "Timestamp": "2018-07-24 18:38:55",
+        "Stock": "ALE",
+        "Price": 15.0
+    },
+    {
+        "Indicator": "SELL",
+        "Quantity": 100,
+        "Timestamp": "2018-07-24 18:39:33",
+        "Stock": "ALE",
+        "Price": 15.0
+    },
+    {
+        "Indicator": "SELL",
+        "Quantity": 100,
+        "Timestamp": "2018-07-24 18:44:27",
+        "Stock": "ALE",
+        "Price": 15.0
+    },
+    {
+        "Indicator": "SELL",
+        "Quantity": 100,
+        "Timestamp": "2018-07-24 18:48:35",
+        "Stock": "ALE",
+        "Price": 15.0
+    },
+    {
+        "Indicator": "SELL",
+        "Quantity": 100,
+        "Timestamp": "2018-07-24 18:49:48",
+        "Stock": "ALE",
+        "Price": 15.0
+    },
+    {
+        "Indicator": "SELL",
+        "Quantity": 100,
+        "Timestamp": "2018-07-24 18:49:58",
+        "Stock": "ALE",
+        "Price": 15.0
+    },
+    {
+        "Timestamp": "2018-07-24 18:50:04",
+        "Quantity": 100,
+        "Indicator": "SELL",
+        "Stock": "ALE",
+        "Price": 15.0
+    },
+    {
+        "Price": 15.0,
+        "Quantity": 100,
+        "Timestamp": "2018-07-24 18:54:17",
+        "Stock": "ALE",
+        "Indicator": "SELL"
     }
 ]

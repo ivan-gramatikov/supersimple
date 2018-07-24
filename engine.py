@@ -40,11 +40,19 @@ def main_data(symbol):
             'Error! The file sample_data_gbce.json has not been found. It is requred for the program to run correctly. Please put it back in the folder where the script is located!\n')
         return False
 
+    # We check if the stock symbol exists in the database
+    list_of_symbols = [di['Stock_Symbol'] for di in example_stock_data if 'Stock_Symbol' in di]
+
+    # Otherwise we sound an alarm:
+    if symbol not in list_of_symbols:
+        raise ValueError('Stock symbol not in database')
+        return False
+
+    #We test if the stock symbol is within the provided data..
     locator = next(item for item in example_stock_data if item["Stock_Symbol"] == symbol)
 
     # We output the locator
     return locator
-
 
 def calculate_dividend_yield(symbol, price):
     """
@@ -107,19 +115,29 @@ def p_to_e_ratio(symbol, price):
     # Safety measures to ensure what has been passed will be the proper type
     symbol = str(symbol)
     price = float(price)
+    p_e_ratio = 0
     # We take the locator from the output of the main_data function above
     locator = main_data(symbol)
     if not locator:
         raise ValueError(
             'Error! The locator could not be found. The file sample_data_gbce.json is probably missing. It is requred for the program to run correctly. Please put it back in the folder where the script is located!\n')
         return False
+
+    # Some sanity checks
+    if price < 0.0:
+        raise ValueError('Error, the input price the user has given cannot be negative.')
+
     # We take the variable we need for the calculation of the P/E ratio from the table
     last_dividend = locator['Last_Dividend']
     # We calculate the P/E ratio
-    p_e_ratio = (price / last_dividend)
+    try:
+        p_e_ratio = (price / float(last_dividend))
+        return round(p_e_ratio, 2)
+    except ZeroDivisionError:
+        print('The value of {} must have been 0 because division by 0 is detected and is not allowed!'.format(symbol))
+        return False
 
     # And return the P/e ratio
-    return p_e_ratio
 
 
 def trade_record(symbol, quantity_of_shares, movement, price):
@@ -142,6 +160,12 @@ def trade_record(symbol, quantity_of_shares, movement, price):
     movement = str(movement)
     price = float(price)
 
+
+    # Some sanity checks
+    if price < 0:
+        raise ValueError(
+            "The user needs to enter a positive price")
+        return False
 
     # We take the path to the recorded trade json file so we append to it as needed
     appendtojson = (os.path.realpath(os.path.join(os.getcwd(), "trade_{}.json".format(symbol))))
@@ -326,7 +350,7 @@ def main():
 
     if sys.argv[1] == '--d' or sys.argv[1] == '--dividend-yield':
         if sys.argv[2] == 'h':
-            sys.exit('Help: The dividend yield is calculated when the user passes the stock symbol and price desired. Example: --d POP 149 ')
+            sys.exit('Help: The dividend yield is calculated when the user passes the stock symbol and price desired. Example: python3 engine.py --d POP 149 ')
         dividend = calculate_dividend_yield(sys.argv[2], sys.argv[3])
         if not dividend:
             print('Error! \n')
@@ -336,7 +360,7 @@ def main():
 
     if sys.argv[1] == '--pe' or sys.argv[1] == '--p-to-e-ratio':
         if sys.argv[2] == 'h':
-            sys.exit('Help: The P/E ratio is calculated when the user passes the stock symbol and price desired. Example: --pe POP 140 or --p-to-e-ratio POP 140 ')
+            sys.exit('Help: The P/E ratio is calculated when the user passes the stock symbol and price desired. Example: python3 engine.py --pe POP 140 or --p-to-e-ratio POP 140 ')
         p_e_ratio_figure = p_to_e_ratio(sys.argv[2], sys.argv[3])
         if not p_e_ratio_figure:
             print('Error! \n')
@@ -346,7 +370,7 @@ def main():
 
     if sys.argv[1] == '--tr' or sys.argv[1] == '--trade-record':
         if sys.argv[2] == 'h':
-            sys.exit('Help: The trade record is created as a file and the user receives what information has been recorded when the user passes the stock, quantity of shares, indicator (BUY or SELL) and price. Example: --tr JOE, 12, SELL, 22.8 or --trade-record JOE, 12, SELL, 22.8')
+            sys.exit('Help: The trade record is created as a file and the user receives what information has been recorded when the user passes the stock, quantity of shares, indicator (BUY or SELL) and price. Example: python3 engine.py --tr JOE, 12, SELL, 22.8 or --trade-record JOE, 12, SELL, 22.8')
         trade_recorded = trade_record(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
         if not trade_recorded:
             print('Error! \n')
@@ -357,7 +381,7 @@ def main():
 
     if sys.argv[1] == '--vwsp' or sys.argv[1] == '--volume-weighted-stock-price':
         if sys.argv[2] == 'h':
-            sys.exit('Help: The volume weighted stock price creates a file (if the stock symbol has not already been used to produce a trade record) and the user receives a figure for the volume weighted stock price when the user passes the stock symbol desired. Example: --vwsp TEA or --volume-weighted-stock-price TEA')
+            sys.exit('Help: The volume weighted stock price creates a file (if the stock symbol has not already been used to produce a trade record) and the user receives a figure for the volume weighted stock price when the user passes the stock symbol desired. Example: python3 engine.py --vwsp TEA or --volume-weighted-stock-price TEA')
         vwsp = volume_weighted_stock_price(sys.argv[2])
         if not vwsp:
             print('Error! \n')

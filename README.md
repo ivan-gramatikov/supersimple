@@ -28,11 +28,17 @@ JOE          |Common|            13 |                |       250|
 
 
 Dividend Yield:
-Common: (Last Dividend)/Price
-Preferred: (Fixed Dividend*Par Value)/Price
+Common: `(Last Dividend)/Price`
 
-P/E Ratio: Price/Dividend
+Preferred: `(Fixed Dividend*Par Value)/Price`
 
-Geometric Mean: Squareroot(n)[p1p2p3...pn]
+P/E Ratio: `Price/Dividend`
 
-Volume Weighted Stock Price: SUM(i)[Traded Price(i) x Quantity(i)]/Sum(i)[Quantity]
+Geometric Mean: `Squareroot(n)[p1p2p3...pn]`
+
+Volume Weighted Stock Price: `SUM(i)[Traded Price(i) x Quantity(i)]/Sum(i)[Quantity]`
+
+NB: The output of Dividend Yield is multiplied by 100 to give a percentage figure, as in:
+Last dividend = 8, Price = 100, DY for Common type of stock = 8/100 = 0.08 and then the output would be 0.08*100 = 8
+Part of the definition:  "Dividend yield is represented as a percentage [..]"
+Source: https://www.investopedia.com/terms/d/dividendyield.asp

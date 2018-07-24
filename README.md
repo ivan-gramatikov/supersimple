@@ -70,6 +70,7 @@ Example:
 4. Volume Weighted Stock Price:
 
 The volume weighted stock price creates a file (if the stock symbol has not already been used to produce a trade record) and the user receives a figure for the volume weighted stock price when the user passes the stock symbol desired.
+
 Example:
 `python3 engine.py --vwsp TEA` or `python3 engine.py --volume-weighted-stock-price TEA`
 

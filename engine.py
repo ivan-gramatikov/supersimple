@@ -258,7 +258,7 @@ def volume_weighted_stock_price(symbol):
 
     # We create 10 random trades for the sake of simulation where the user only gives the symbol initially. These will surely be included among the chosen trades of last 15 minutes.
     # We call the trade_record() function and instruct it to take random prices, random trade indicator, and random quantity
-    for _ in range(3):
+    for _ in range(100):
         trade_record(symbol, random.randint(1, 1000), random.choice(movement_indicator),
                      round(random.uniform(0.1, 100.0), 2))
 
@@ -289,7 +289,7 @@ def volume_weighted_stock_price(symbol):
     return round(volume_weighted_stock, 2)
 
 
-def gbce_all_share_index():
+def gbce_all_share_index(dir_with_files):
     """
     This function calculates the GBCE all share index by gathering from the local directory all the trade records files and taking from them the prices to which geometric mean will later be used.
     The user must make sure to first use the functionality which writes down trades and then run this function as sufficient number of price data must be gathered.
@@ -305,7 +305,7 @@ def gbce_all_share_index():
     flag_file_dictionary = []
 
     # Going over all the files in the current working directory where the python script is located
-    list_of_files_locally = [current_element for current_element in os.listdir(os.getcwd()) if os.path.isfile(current_element)]
+    list_of_files_locally = [current_element for current_element in os.listdir(dir_with_files) if os.path.isfile(current_element)]
     for individual_file in list_of_files_locally:
         # Check if we have a valid named record file
         if 'trade_' in individual_file and '.json' in individual_file:
@@ -421,18 +421,18 @@ def main():
     if sys.argv[1] == '--vwsp' or sys.argv[1] == '--volume-weighted-stock-price':
         if sys.argv[2] == 'h':
             sys.exit('Help: The volume weighted stock price creates a file (if the stock symbol has not already been used to produce a trade record) and the user receives a figure for the volume weighted stock price when the user passes the stock symbol desired. Example: python3 engine.py --vwsp TEA or --volume-weighted-stock-price TEA')
+
         vwsp = volume_weighted_stock_price(sys.argv[2])
         if not vwsp:
             print('Error! \n')
         else:
             print('Volume Weighted Stock price: {}'.format(vwsp))
 
-
-
     if sys.argv[1] == '--asi' or sys.argv[1] == '--all-share-index':
         if sys.argv[2] == 'h':
             sys.exit('The Global Beverage Commerce Exchange All Share Inex will be automatically calculated, provided the user has recorded trades for MORE THAN 2 stock indices. No input from the user is required otherwise. Example: python3 engine.py --asi or python3 engine.py --all-share-index')
-        gbce_asi = gbce_all_share_index()
+
+        gbce_asi = gbce_all_share_index(sys.argv[2])
         if not gbce_asi:
             print('Error! \n')
         else:

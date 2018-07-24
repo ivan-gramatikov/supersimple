@@ -346,7 +346,8 @@ def main():
     """
 
     if len(sys.argv[0:])<2:
-        sys.exit("""Super Simple Stock Market Engine v1.0
+        sys.exit("""
+        Super Simple Stock Market Engine v1.0
 
         The code supports the following functionality:
         1. Dividend Yield:
@@ -372,6 +373,7 @@ def main():
         4. Volume Weighted Stock Price:
 
         The volume weighted stock price creates a file (if the stock symbol has not already been used to produce a trade record) and the user receives a figure for the volume weighted stock price when the user passes the stock symbol desired.
+
         Example:
         `python3 engine.py --vwsp TEA` or `python3 engine.py --volume-weighted-stock-price TEA`
 
@@ -382,6 +384,7 @@ def main():
 
         To run tests:
         `python3 test_engine.py`
+
         """)
 
     if sys.argv[1] == '--d' or sys.argv[1] == '--dividend-yield':
@@ -425,42 +428,7 @@ def main():
             print('Volume Weighted Stock price: {}'.format(vwsp))
 
 
-Super Simple Stock Market Engine v1.0
 
-The code supports the following functionality:
-1. Dividend Yield:
-
-The dividend yield is calculated when the user passes the stock symbol and price desired.
-
-Example: `python3 engine.py --d POP 149` or `python3 engine.py --dividend-yield POP 149`
-
-2. P/E ratio:
-
-The P/E ratio is calculated when the user passes the stock symbol and price desired.
-
-Example:
-`python3 engine.py --pe POP 140` or `python3 engine.py --p-to-e-ratio POP 140`
-
-3.  Trade Record Creation:
-
-The trade record is created as a file and the user receives what information has been recorded when the user passes the stock, quantity of shares, indicator (BUY or SELL) and price.
-
-Example:
-`python3 engine.py --tr JOE 12 SELL 22.8` or `python3 engine.py --trade-record JOE 12 SELL 22.8`
-
-4. Volume Weighted Stock Price:
-
-The volume weighted stock price creates a file (if the stock symbol has not already been used to produce a trade record) and the user receives a figure for the volume weighted stock price when the user passes the stock symbol desired.
-Example:
-`python3 engine.py --vwsp TEA` or `python3 engine.py --volume-weighted-stock-price TEA`
-
-5. The Global Beverage Commerce Exchange All Share Inex will be automatically calculated, provided the user has recorded trades for MORE THAN 2 stock indices. No input from the user is required otherwise.
-
-Example:
-`python3 engine.py --asi` or `python3 engine.py --all-share-index`
-
-To run tests:
-`python3 test_engine.py`
     if sys.argv[1] == '--asi' or sys.argv[1] == '--all-share-index':
         if sys.argv[2] == 'h':
             sys.exit('The Global Beverage Commerce Exchange All Share Inex will be automatically calculated, provided the user has recorded trades for MORE THAN 2 stock indices. No input from the user is required otherwise. Example: python3 engine.py --asi or python3 engine.py --all-share-index')

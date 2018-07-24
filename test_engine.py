@@ -9,6 +9,7 @@ This is a standalone script which tests the Super Simple Stock Market engine
 
 import unittest
 import datetime
+import json
 import engine
 
 class SuperSimple(unittest.TestCase):
@@ -40,7 +41,20 @@ class SuperSimple(unittest.TestCase):
     def test_trade_record(self):
         trade = engine.trade_record('ALE', 100, 'SELL', 15)
         now = datetime.datetime.now()
-        timestamp = now.strftime("%Y-%m-%d %H:%M")
+        timestamp_current = now.strftime("%Y-%m-%d %H:%M")
+        with open('trade_ALE.json', 'r') as ale:
+            test_ale = json.load(ale)
+
+        for individual_record_item in test_ale:
+            price = individual_record_item['Price']
+            indicator = individual_record_item['Indicator']
+            stock = individual_record_item['Stock']
+            quantity = individual_record_item['Quantity']
+            timestamp = individual_record_item['Timestamp']
+
+        timestamp_file = timestamp[:-3]
+
+        # Printed output testing
         self.assertIn('ALE', trade)
         self.assertIn(str(100), trade)
         self.assertIn('SELL', trade)
@@ -48,12 +62,14 @@ class SuperSimple(unittest.TestCase):
         self.assertIn(timestamp, trade)
         self.assertNotIn('JOE',trade)
 
+        # Recorded output (in json file) testing
+        self.assertIn('ALE', stock)
+        self.assertIn(str(100), str(quantity))
+        self.assertIn('SELL', indicator)
+        self.assertIn(str(15), str(price))
+        self.assertIn(timestamp_current, timestamp_file)
+        self.assertNotIn('JOE',trade)
 
-    def test_volume_weighted_stock_price(self):
-        pass
-
-    def test_gbce_all_share_index(self):
-        pass
 
 
 if __name__ == '__main__':

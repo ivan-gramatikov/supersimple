@@ -42,3 +42,26 @@ NB: The output of Dividend Yield is multiplied by 100 to give a percentage figur
 Last dividend = 8, Price = 100, DY for Common type of stock = 8/100 = 0.08 and then the output would be 0.08*100 = 8
 Part of the definition:  "Dividend yield is represented as a percentage [..]"
 Source: https://www.investopedia.com/terms/d/dividendyield.asp
+
+
+The code supports the following functionality:
+1. Dividend Yield:
+
+The dividend yield is calculated when the user passes the stock symbol and price desired. Example: `python3 engine.py --d POP 149` or `python3 engine.py --dividend-yield POP 149`
+
+2. P/E ratio:
+
+The P/E ratio is calculated when the user passes the stock symbol and price desired. Example: `python3 engine.py --pe POP 140` or `python3 engine.py --p-to-e-ratio POP 140`
+
+3.  Trade Record Creation:
+
+The trade record is created as a file and the user receives what information has been recorded when the user passes the stock, quantity of shares, indicator (BUY or SELL) and price.
+Example: `python3 engine.py --tr JOE 12 SELL 22.8` or `python3 engine.py --trade-record JOE 12 SELL 22.8`
+
+4. Volume Weighted Stock Price:
+
+The volume weighted stock price creates a file (if the stock symbol has not already been used to produce a trade record) and the user receives a figure for the volume weighted stock price when the user passes the stock symbol desired.
+Example: `python3 engine.py --vwsp TEA` or `python3 engine.py --volume-weighted-stock-price TEA`
+
+To run tests:
+python3 test_engine.py

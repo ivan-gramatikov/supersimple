@@ -1,0 +1,65 @@
+[
+    {
+        "Quantity": 325,
+        "Price": 76.52,
+        "Stock": "GIN",
+        "Timestamp": "2018-07-24 19:56:40",
+        "Indicator": "SELL"
+    },
+    {
+        "Quantity": 581,
+        "Price": 7.75,
+        "Stock": "GIN",
+        "Timestamp": "2018-07-24 19:56:40",
+        "Indicator": "SELL"
+    },
+    {
+        "Quantity": 755,
+        "Price": 46.85,
+        "Stock": "GIN",
+        "Timestamp": "2018-07-24 19:56:40",
+        "Indicator": "BUY"
+    },
+    {
+        "Quantity": 754,
+        "Price": 79.32,
+        "Stock": "GIN",
+        "Timestamp": "2018-07-24 19:57:15",
+        "Indicator": "SELL"
+    },
+    {
+        "Quantity": 278,
+        "Price": 3.85,
+        "Stock": "GIN",
+        "Timestamp": "2018-07-24 19:57:15",
+        "Indicator": "SELL"
+    },
+    {
+        "Quantity": 635,
+        "Price": 57.85,
+        "Stock": "GIN",
+        "Timestamp": "2018-07-24 19:57:15",
+        "Indicator": "BUY"
+    },
+    {
+        "Quantity": 693,
+        "Price": 34.63,
+        "Stock": "GIN",
+        "Timestamp": "2018-07-24 19:57:41",
+        "Indicator": "BUY"
+    },
+    {
+        "Stock": "GIN",
+        "Price": 52.31,
+        "Quantity": 160,
+        "Timestamp": "2018-07-24 19:57:41",
+        "Indicator": "BUY"
+    },
+    {
+        "Quantity": 643,
+        "Price": 75.14,
+        "Timestamp": "2018-07-24 19:57:41",
+        "Stock": "GIN",
+        "Indicator": "SELL"
+    }
+]

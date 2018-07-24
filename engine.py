@@ -258,7 +258,7 @@ def volume_weighted_stock_price(symbol):
 
     # We create 10 random trades for the sake of simulation where the user only gives the symbol initially. These will surely be included among the chosen trades of last 15 minutes.
     # We call the trade_record() function and instruct it to take random prices, random trade indicator, and random quantity
-    for _ in range(10):
+    for _ in range(3):
         trade_record(symbol, random.randint(1, 1000), random.choice(movement_indicator),
                      round(random.uniform(0.1, 100.0), 2))
 
@@ -346,7 +346,29 @@ def main():
     """
 
     if len(sys.argv[0:])<2:
-        sys.exit('NO arguments have been passed! Exiting')
+        sys.exit("""
+        The code supports the following functionality:
+        1. Dividend Yield:
+
+        The dividend yield is calculated when the user passes the stock symbol and price desired. Example: `python3 engine.py --d POP 149` or `python3 engine.py --dividend-yield POP 149`
+
+        2. P/E ratio:
+
+        The P/E ratio is calculated when the user passes the stock symbol and price desired. Example: `python3 engine.py --pe POP 140` or `python3 engine.py --p-to-e-ratio POP 140`
+
+        3.  Trade Record Creation:
+
+        The trade record is created as a file and the user receives what information has been recorded when the user passes the stock, quantity of shares, indicator (BUY or SELL) and price.
+        Example: `python3 engine.py --tr JOE 12 SELL 22.8` or `python3 engine.py --trade-record JOE 12 SELL 22.8`
+
+        4. Volume Weighted Stock Price:
+
+        The volume weighted stock price creates a file (if the stock symbol has not already been used to produce a trade record) and the user receives a figure for the volume weighted stock price when the user passes the stock symbol desired.
+        Example: `python3 engine.py --vwsp TEA` or `python3 engine.py --volume-weighted-stock-price TEA`
+
+        To run tests:
+        python3 test_engine.py
+        """)
 
     if sys.argv[1] == '--d' or sys.argv[1] == '--dividend-yield':
         if sys.argv[2] == 'h':
@@ -370,7 +392,7 @@ def main():
 
     if sys.argv[1] == '--tr' or sys.argv[1] == '--trade-record':
         if sys.argv[2] == 'h':
-            sys.exit('Help: The trade record is created as a file and the user receives what information has been recorded when the user passes the stock, quantity of shares, indicator (BUY or SELL) and price. Example: python3 engine.py --tr JOE, 12, SELL, 22.8 or --trade-record JOE, 12, SELL, 22.8')
+            sys.exit('Help: The trade record is created as a file and the user receives what information has been recorded when the user passes the stock, quantity of shares, indicator (BUY or SELL) and price. Example: python3 engine.py --tr JOE, 12, SELL, 22.8 or --trade-record JOE 12 SELL 22.8')
         trade_recorded = trade_record(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
         if not trade_recorded:
             print('Error! \n')

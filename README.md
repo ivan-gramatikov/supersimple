@@ -17,6 +17,7 @@ Constraints & Notes
 
 -----------------------------------------------------------------
 Stock Symbol | Type | Last Dividend | Fixed Dividend | Par Value|
+| ---------- |:----:|:-------------:|:--------------:|---------:|
 TEA          |Common|             0 |                |       100|
 POP          |Common|             8 |                |       100|
 ALE          |Common|            23 |                |        60|
